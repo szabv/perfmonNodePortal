@@ -1,0 +1,25 @@
+{
+  "jspm": {
+    "main": "handlebars",
+    "shim": {
+      "handlebars": {
+        "exports": "Handlebars"
+      }
+    },
+    "files": [
+      "handlebars.js",
+      "handlebars.runtime.js"
+    ]
+  },
+  "main": "handlebars",
+  "shim": {
+    "handlebars": {
+      "exports": "Handlebars"
+    }
+  },
+  "files": [
+    "handlebars.js",
+    "handlebars.runtime.js"
+  ],
+  "registry": "github"
+}

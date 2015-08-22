@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1= title
+  h2 Host: #{pmCounterList.Host}
+  p=info
+  ul
+    each val in pmCounterList.counters
+      li= val
+      

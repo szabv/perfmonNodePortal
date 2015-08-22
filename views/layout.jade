@@ -1,0 +1,11 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="/jspm_packages/system.js")
+    script(src="/config.js")
+    script="System.import('lib/main');"
+    script="System.import('jquery');"
+  body
+    block content
