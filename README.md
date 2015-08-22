@@ -1,6 +1,7 @@
 # perfmonNodePortal
 A quick and dirty way to get PerfMon counter info from a windows box using node.  
 
+The aims o this project is to be able to install a quick way to monitor a windows box using Perf Mon counters.
 The aims of this project:
 
 - An easy way to monitor a windows box remotely using PerfMon counters. 
