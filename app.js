@@ -4,6 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var wsServer = require('./modules/wsServer');
+
 
 // New Code
 var mongo = require('mongodb');
@@ -68,5 +70,6 @@ app.use(function(err, req, res, next) {
   });
 });
 
+wsServer.startServer(8000);
 
 module.exports = app;

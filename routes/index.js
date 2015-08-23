@@ -11,11 +11,6 @@ pm.getPmData('memory').then(function (data){
   });
 });
 
-pm.getCategories(function(categories){
-  console.log('Executing callback.');
-  console.log(categories);
-  console.log('That was the end of catagories.');
-});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -23,10 +18,8 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET Hello World page. */
-router.get('/helloworld', function(req, res) {
-  res.render('helloworld', { title: 'Hello, World!',
-                             info: 'Some more stuff to add to the page.',
-                             pmData: pmData});
+router.get('/wstest', function(req, res) {
+  res.render('wsTest', { title: 'Check out them sockets!'});
 });
 
 

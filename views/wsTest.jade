@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  script(src="/javascript/wsClient.js")
+  h1= title
+  p Send to Server
+  input(type='test' id='text' name='send-stuff')
+  button(id='goButton' value='Go' onClick='sendText()') GO
+  p From Server
+  div(id='output')
