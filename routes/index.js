@@ -3,6 +3,8 @@ var pm = require('../modules/pm');
 
 var router = express.Router();
 
+
+// TODO: Turn this end point into ways to select counters.
 pm.getPmData('memory').then(function (data){
   router.get('/pmMemory', function(req, res) {
     res.render('pmCounterList', { title: 'PerfMon memory counters',
@@ -34,5 +36,7 @@ router.get('/userlist', function(req, res) {
     });
   });
 });
+
+
 
 module.exports = router;

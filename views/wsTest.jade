@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  script(src="/javascript/wsClient.js")
+  script(src="/javascript/wsClient.js?=" + Date.now())
   h1= title
   p Send to Server
   input(type='test' id='text' name='send-stuff')

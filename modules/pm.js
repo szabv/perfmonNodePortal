@@ -22,15 +22,14 @@ function getPmData(pmCategory) {
 
 function getChainStuff(data) {
   var promise = new RSVP.Promise(function(resolve, reject){
-
-      if (data !== '' && data !== 'undefined') {
-        console.log('resolving with OK');
-        resolve(data);
-      }
-      else{
-        console.log('resolving with ERR');
-        reject( 'shit man');
-      }
+    if (data !== '' && data !== 'undefined') {
+      console.log('resolving with OK');
+      resolve(data);
+    }
+    else{
+      console.log('resolving with ERR');
+      reject( 'shit man');
+    }
   });
 
   return promise;
@@ -56,8 +55,8 @@ function parsCategories(data){
     var counter = data.counters[i].substring(lastIndexOfSlash + 1, data.counters[i].length);
 
     if (currentCategory.name !== cat ){
-        currentCategory = getNewCategory(cat);
-        categories.categoryArray.push(currentCategory);
+      currentCategory = getNewCategory(cat);
+      categories.categoryArray.push(currentCategory);
     }
     currentCategory.counters.push(counter);
   }
@@ -99,9 +98,32 @@ function getCategories(callback){
   console.log('getCategories -- end');
 };
 
+function streamCounter(counters, callback){
+  console.log('streamCounter -- sart');
+
+  // Counters here are left in for testing and debug.
+  if(counters == 'undefined' || counters.length < 1){
+    counters = [
+      '\\processor(_total)\\% processor time',
+      '\\memory\\available bytes',
+    ];
+  }
+
+  PerfMon(counters, function(err, data) {
+    if(err){
+      console.log(err);
+    }else{
+      callback(data);
+    }
+  });
+
+  console.log('streamCounter -- end');
+}
+
 var pm = {
   getPmData : getPmData,
-  getCategories : getCategories
+  getCategories : getCategories,
+  streamCounter : streamCounter
 };
 
 module.exports = pm;

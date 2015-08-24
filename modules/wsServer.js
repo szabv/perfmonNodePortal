@@ -30,7 +30,6 @@ function getNewMessage(text) {
 
 function sendToAll(text) {
   var msgJSON = JSON.stringify(getNewMessage(text));
-  console.log(wsServer);
   for(var i = 0; i < wsServer.connections.length; i++){
     wsServer.connections[i].sendUTF(msgJSON);
   }
