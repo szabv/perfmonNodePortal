@@ -1,10 +1,17 @@
 var wsocket = new WebSocket('ws://localhost:8000/', 'echo-protocol');
 
 wsocket.onmessage = function(event){
+  console.log(event);
   var div = document.getElementById("output");
   var msg = JSON.parse( event.data );
-  console.log(event);
-  div.innerHTML = makeItReadable(msg.date) + '<br/><code>' + msg.text + '</code><br/>' + div.innerHTML ;
+  var counterInfo = msg.text;
+  console.log(counterInfo);
+  div.innerHTML = '<div>' +
+    'host: ' + counterInfo.host + '<br/>' +
+    'time: ' + new Date(counterInfo.time) + '<br/>' +
+    '\\processor(_total)\\% processor time: ' + counterInfo.counters['\\processor(_total)\\% processor time'] + '<br/>' +
+    '\\memory\\available bytes: ' + counterInfo.counters['\\memory\\available bytes'] +
+    '</div>' + div.innerHTML;
 };
 
 function makeItReadable(timestamp) {
